@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.qameta.allure.Allure.step;
 
-public class UIElementsTests {
+public class UIElementsTests extends TestBase{
 
     @Test
     @Tag("ios")
