@@ -55,3 +55,15 @@ tasks.withType(Test) {
         }
     }
 }
+
+task ios(type: Test) {
+    useJUnitPlatform{
+        includeTags("ios")
+    }
+}
+
+task android(type: Test) {
+    useJUnitPlatform{
+        includeTags("android")
+    }
+}
