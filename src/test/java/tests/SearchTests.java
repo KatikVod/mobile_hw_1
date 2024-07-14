@@ -21,15 +21,13 @@ public class SearchTests extends TestBase {
             $(accessibilityId("Search Wikipedia")).click();
             $(id("search_src_text")).sendKeys("Appium");
         });
-        step("Verify content found", () ->
-            $$(id("page_list_item_title"))
-                    .shouldHave(sizeGreaterThan(0)));
+        step("Verify content found", () -> $$(id("page_list_item_title"))
+                .shouldHave(sizeGreaterThan(0)));
     }
 
     @Test
     @DisplayName("Отккрытие найденной статьи")
     void successfulOpenArticleTest() {
-
         step("Click Skip button", () -> {
             $(id("fragment_onboarding_skip_button")).click();
         });
@@ -37,11 +35,9 @@ public class SearchTests extends TestBase {
             $(accessibilityId("Search Wikipedia")).click();
             $(id("search_src_text")).sendKeys("BrowserStack");
         });
-        step("Open found article", () ->
-                $(id("page_list_item_title"))
-                        .click());
+        step("Open found article", () -> $(id("page_list_item_title")).click());
         step("Verify article", () -> {
-        $(className("android.widget.TextView")).shouldHave(text("BrowserStack"));
-    });
+            $(className("android.widget.TextView")).shouldHave(text("BrowserStack"));
+        });
     }
 }

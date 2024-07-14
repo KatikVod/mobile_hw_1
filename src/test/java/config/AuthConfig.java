@@ -6,9 +6,6 @@ import org.aeonbits.owner.Config;
         "classpath:auth.properties"
 })
 public interface AuthConfig extends Config {
-
     String username();
-
     String password();
-
 }
