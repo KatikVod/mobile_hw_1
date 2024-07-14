@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
@@ -11,6 +12,7 @@ import static io.qameta.allure.Allure.step;
 public class SearchTests extends TestBase {
 
     @Test
+    @DisplayName("Поиск статьи по запросу")
     void successfulSearchTest() {
         step("Click Skip button", () -> {
             $(id("fragment_onboarding_skip_button")).click();
@@ -25,6 +27,7 @@ public class SearchTests extends TestBase {
     }
 
     @Test
+    @DisplayName("Отккрытие найденной статьи")
     void successfulOpenArticleTest() {
 
         step("Click Skip button", () -> {
@@ -34,10 +37,11 @@ public class SearchTests extends TestBase {
             $(accessibilityId("Search Wikipedia")).click();
             $(id("search_src_text")).sendKeys("BrowserStack");
         });
-        step("open found article", () ->
+        step("Open found article", () ->
                 $(id("page_list_item_title"))
                         .click());
+        step("Verify article", () -> {
         $(className("android.widget.TextView")).shouldHave(text("BrowserStack"));
+    });
     }
-
 }
